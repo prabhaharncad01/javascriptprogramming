@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ttospeech</title>
+    <style>
+.texttospeech{
+    resize: none;
+    width: 600px;
+    height: 250px;
+    font-size: 18px;
+}
+
+.btn{
+    display: flex;
+    padding: 20px;
+    font-size: 18px;
+    width: 25%;
+    text-align: center;
+    font-style: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+    border-radius: 6px;
+
+
+}
+
+.btn:hover{
+    background-color: blue;
+    color: white;
+    animation: ease-in 10s;
+  
+}
+.text{
+   align-content: center;
+position: absolute;
+   top: 40%;
+   left: 30%;
+    
+}
+body{
+    background: #d85eaf;
+
+}
+
+.head{
+    font-size: 100px;
+    color: blue;
+    text-align: center;
+}
+    </style>
+</head>
+<body>
+    <h1 class="head">Text To Speech</h1>
+    <section class="text">
+        <textarea name="texttospeech" id="texttospeech" cols="30" rows="10" class="texttospeech"></textarea>
+        <label for="language">Select Language:</label>
+        <select id="language">
+            <option value="en-US">English (United States)</option>
+            <option value="en-GB">English (United Kingdom)</option>
+            <option value="fr-FR">French (France)</option>
+            <option value="de-DE">German (Germany)</option>
+            <!-- Add more language options as needed -->
+        </select>
+        <button onclick="texttospeech()" class="btn">speak</button>
+    </section>
+
+
+    <script>
+        const TextToSpeak= document.getElementById('texttospeech');
+
+        function texttospeech(){
+            let speechobj = new SpeechSynthesisUtterance(TextToSpeak.value);
+            window.speechSynthesis.speak(speechobj);
+        }
+    </script>
+</body>
+</html>

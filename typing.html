@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TypingText</title>
+    <style>
+        body{
+            background-color:greenyellow;
+        }
+        h1{
+            font-size: 8rem;
+            font-style: italic;
+            text-align: center;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+
+
+
+    <h1 id="text"></h1>
+    <script>
+        const textElement = document.getElementById('text');
+        const text = "hi am prabhaharn from trichyy";
+        let index = 0;
+        function typing(){
+            textElement.textContent += text[index];
+            index++;
+
+            if (index>=text.length){
+                index=0;
+                textElement.textContent='';
+                
+            }
+            setTimeout(typing,120);
+        }
+        typing();
+    </script>
+</body>
+</html>

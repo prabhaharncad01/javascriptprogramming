@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Drawing</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="starCanvas"></canvas>
+
+    <script>
+        const canvas = document.getElementById('starCanvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        function drawStar(x, y, radius, points, innerRadius) {
+            ctx.beginPath();
+            ctx.moveTo(x, y - radius);
+
+            for (let i = 0; i < points * 2; i++) {
+                const angle = (i * Math.PI) / points;
+                const r = i % 2 === 0 ? radius : innerRadius;
+                const posX = x + Math.cos(angle) * r;
+                const posY = y + Math.sin(angle) * r;
+                ctx.lineTo(posX, posY);
+            }
+
+            ctx.closePath();
+            ctx.fillStyle = 'gold'; // You can change the color
+            ctx.fill();
+        }
+
+        const centerX = canvas.width / 2;
+        const centerY = canvas.height / 2;
+
+        // Adjust these parameters to change the star appearance
+        const starRadius = 50;
+        const starPoints = 5;
+        const starInnerRadius = 20;
+
+        drawStar(centerX, centerY, starRadius, starPoints, starInnerRadius);
+    </script>
+</body>
+</html>

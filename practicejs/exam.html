@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examquestion</title>
+</head>
+<body>
+
+<h1>vote eligibility</h1>
+    <script>
+function votecheck(age, id){
+    if(age >= 18){
+        if(id === "aadhar" || id === "voterid"){ // corrected typo in "aadhar"
+            console.log("eligible to vote");
+        } else {
+            alert("eligible to vote but you need to provide id");
+        }
+    } else {
+        alert("not eligible to vote");
+    }
+}
+
+// Removed console.log() from here as it was redundant
+votecheck(parseInt(prompt("Enter age: ")), prompt("Enter id name: "));
+    </script>
+</body>
+</html>
